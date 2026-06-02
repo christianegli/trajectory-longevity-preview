@@ -1,6 +1,6 @@
 // Top-bar shell — publication-first nav with a light account surface.
 
-const { useState, useEffect, useMemo } = React;
+const { useState, useEffect, useMemo, useRef } = React;
 
 const ROUTES = [
   { key: "dashboard", label: "Today" },
@@ -24,10 +24,12 @@ const SECONDARY_ROUTES = [
 ];
 
 const LANGUAGES = [];
-const APP_VERSION = "20260602c";
+const APP_VERSION = "20260602d";
 
 function TopNav({ route, detail, note, topic, setRoute, searchTerm, setSearchTerm }) {
   const [moreOpen, setMoreOpen] = useState(false);
+  const [morePosition, setMorePosition] = useState({ top: 58, left: 0 });
+  const moreButtonRef = useRef(null);
   const itemCount = (window.ALL_ITEMS || []).length;
   const isActive = (key) => (
     route === key ||
@@ -38,6 +40,15 @@ function TopNav({ route, detail, note, topic, setRoute, searchTerm, setSearchTer
   const goRoute = (key) => {
     setMoreOpen(false);
     setRoute(key);
+  };
+  const toggleMore = () => {
+    const rect = moreButtonRef.current?.getBoundingClientRect();
+    if (rect) {
+      const width = 190;
+      const left = Math.min(window.innerWidth - width - 12, Math.max(12, rect.left + rect.width / 2 - width / 2));
+      setMorePosition({ top: rect.bottom + 10, left });
+    }
+    setMoreOpen(open => !open);
   };
   const runSearch = (event) => {
     event.preventDefault();
@@ -58,14 +69,14 @@ function TopNav({ route, detail, note, topic, setRoute, searchTerm, setSearchTer
             {r.label}
           </button>
         ))}
-        <div className={`nav-more ${moreOpen ? "open" : ""}`} data-open={moreOpen ? "true" : "false"} onMouseEnter={() => setMoreOpen(true)} onMouseLeave={() => setMoreOpen(false)} onBlur={(event) => {
+        <div className={`nav-more ${moreOpen ? "open" : ""}`} data-open={moreOpen ? "true" : "false"} onBlur={(event) => {
           if (!event.currentTarget.contains(event.relatedTarget)) setMoreOpen(false);
         }}>
-          <button type="button" className={`nav-item nav-more-trigger ${SECONDARY_ROUTES.some(r => isActive(r.key)) ? "active" : ""}`} onClick={() => setMoreOpen(open => !open)} aria-haspopup="menu" aria-expanded={moreOpen}>
+          <button ref={moreButtonRef} type="button" className={`nav-item nav-more-trigger ${SECONDARY_ROUTES.some(r => isActive(r.key)) ? "active" : ""}`} onClick={toggleMore} aria-haspopup="menu" aria-expanded={moreOpen}>
             More
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6" /></svg>
           </button>
-          <div className="nav-menu" role="menu" aria-hidden={!moreOpen}>
+          <div className="nav-menu" role="menu" aria-hidden={!moreOpen} style={{ top: `${morePosition.top}px`, left: `${morePosition.left}px` }}>
             {SECONDARY_ROUTES.map(r => (
               <button type="button" key={r.key} className={`nav-menu-item ${isActive(r.key) ? "active" : ""}`} onClick={() => goRoute(r.key)} role="menuitem" tabIndex={moreOpen ? 0 : -1}>
                 {r.label}
