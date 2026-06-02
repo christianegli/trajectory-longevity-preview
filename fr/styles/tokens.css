@@ -1,0 +1,86 @@
+/* Trajectory — design tokens for 3 directions, plus shared primitives */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Fraunces:opsz,wght@9..144,300..700&family=Instrument+Serif&family=GT+Sectra:wght@400;500&family=Inter:wght@300..700&family=Spectral:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* DIRECTION A — Editorial Sage (refined current palette, magazine cadence) */
+[data-dir="A"] {
+  --bg: #F2F1EC;
+  --bg-2: #E8E7E0;
+  --paper: #FBFAF6;
+  --ink: #1A2A24;
+  --ink-2: #4A5C54;
+  --ink-3: #8A9690;
+  --rule: rgba(26,42,36,0.12);
+  --accent: #3F6951;
+  --accent-2: #6F9A82;
+  --accent-soft: #DDE7DD;
+  --warm: #C58E68;
+  --score-hi: #3F6951;
+  --score-mid: #C58E68;
+  --score-lo: #B05546;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --r-card: 4px;
+  --r-pill: 999px;
+}
+
+/* DIRECTION B — Warm Spa Clinic (cream/clay, soft sage, sun-bleached) */
+[data-dir="B"] {
+  --bg: #F5EFE6;
+  --bg-2: #EBE2D3;
+  --paper: #FCF8F1;
+  --ink: #2C2620;
+  --ink-2: #6B5E51;
+  --ink-3: #A89B8D;
+  --rule: rgba(44,38,32,0.10);
+  --accent: #8A6B4A;
+  --accent-2: #B89070;
+  --accent-soft: #EFE2CE;
+  --warm: #C58E68;
+  --score-hi: #6B8A6E;
+  --score-mid: #C58E68;
+  --score-lo: #B0664E;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --r-card: 18px;
+  --r-pill: 999px;
+}
+
+/* DIRECTION C — Deep Forest Clinical (off-white, deep forest, generous space) */
+[data-dir="C"] {
+  --bg: #F7F7F3;
+  --bg-2: #ECECE5;
+  --paper: #FFFFFF;
+  --ink: #0F1F18;
+  --ink-2: #3A4A42;
+  --ink-3: #7A8880;
+  --rule: rgba(15,31,24,0.10);
+  --accent: #14342A;
+  --accent-2: #2B5847;
+  --accent-soft: #DEE8E2;
+  --warm: #B98968;
+  --score-hi: #2B5847;
+  --score-mid: #B98968;
+  --score-lo: #A04D3D;
+  --serif: 'Spectral', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --r-card: 2px;
+  --r-pill: 2px;
+}
+
+/* Shared primitives */
+.rule { height: 1px; background: var(--rule); border: 0; }
+.mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.serif { font-family: var(--serif); }
+.sans { font-family: var(--sans); }
+
+/* Texture: subtle paper grain on backgrounds */
+.grain {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0);
+  background-size: 3px 3px;
+}

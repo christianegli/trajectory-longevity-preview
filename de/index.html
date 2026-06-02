@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trajectory — Evidence-graded longevity</title>
+<meta name="description" content="Trajectory ist ein evidenzbewerteter Longevity-Guide, der Interventionen nach Humanstudien, Effektgröße und praktischer Relevanz einordnet." />
+<link rel="stylesheet" href="styles/app.css?v=20260527b" />
+</head>
+<body data-theme="default" data-tone="first">
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="app/items.jsx?v=20260527b"></script>
+<script type="text/babel" src="app/posts.jsx?v=20260527b"></script>
+<script type="text/babel" src="app/ui.jsx?v=20260527b"></script>
+<script type="text/babel" src="app/shell.jsx?v=20260527b"></script>
+<script type="text/babel" src="app/dashboard.jsx?v=20260527b"></script>
+<script type="text/babel" src="app/views.jsx?v=20260527b"></script>
+<script type="text/babel" src="app/tweaks-panel.jsx?v=20260527b"></script>
+<script type="text/babel" src="app/i18n.jsx?v=20260527b"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+const { TopNav, SubBar } = window.Shell;
+const { Dashboard } = window;
+const { CatalogueView, DetailView, ConcernsView, NutritionView, PlaybooksView, PlaybookDetailView, CompareView, SearchView, MethodologyView, AssessmentView, AccountView, NotesView, NoteArticleView } = window.Views;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "default",
+  "tone": "first",
+  "viz": "cell"
+}/*EDITMODE-END*/;
+
+function App() {
+  const parseHash = () => {
+    const hash = (window.location.hash || "#/today").replace(/^#\/?/, "");
+    const parts = hash.split("/").filter(Boolean);
+    if (parts[0] === "items" && parts[1]) return { route: "detail", detail: parts[1] };
+    if (parts[0] === "playbooks" && parts[1]) return { route: "playbook", detail: parts[1] };
+    if (parts[0] === "playbooks") return { route: "playbooks", detail: null };
+    if (parts[0] === "compare") return { route: "compare", detail: null };
+    if (parts[0] === "catalogue" && parts[1] === "nutrition") return { route: "catalogue", detail: null, topic: "nutrition" };
+    if (parts[0] === "catalogue") return { route: "catalogue", detail: null, topic: null };
+    if (parts[0] === "nutrition") return { route: "nutrition", detail: null };
+    if (parts[0] === "concerns" || parts[0] === "targets") return { route: "concerns", detail: null, concern: parts[1] || null };
+    if ((parts[0] === "notes" || parts[0] === "news") && parts[1]) return { route: "note", detail: null, note: parts[1] };
+    if (parts[0] === "notes" || parts[0] === "news") return { route: "news", detail: null, note: null };
+    if (parts[0] === "methodology") return { route: "methodology", detail: null };
+    if (parts[0] === "assessment") return { route: "assessment", detail: null };
+    if (parts[0] === "account") return { route: "account", detail: null };
+    if (parts[0] === "search") return { route: "search", detail: null };
+    return { route: "dashboard", detail: null, note: null };
+  };
+  const initial = parseHash();
+  const [route, setRouteState] = useState(initial.route);
+  const [detail, setDetail] = useState(initial.detail);
+  const [note, setNote] = useState(initial.note);
+  const [topic, setTopic] = useState(initial.topic);
+  const [concern, setConcern] = useState(initial.concern);
+  const [searchTerm, setSearchTerm] = useState("");
+  const hook = window.useTweaks ? window.useTweaks(TWEAK_DEFAULTS) : [TWEAK_DEFAULTS, () => {}];
+  const t = hook[0];
+  const setTweak = hook[1];
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+  }, []);
+
+  useEffect(() => {
+    document.body.dataset.theme = t.theme;
+    document.body.dataset.tone = t.tone;
+  }, [t.theme, t.tone]);
+
+  useEffect(() => {
+    window.trackTrajectoryEvent && window.trackTrajectoryEvent("page_view", { route, detail, note, topic, language: "de" });
+  }, [route, detail, note, topic]);
+
+  useEffect(() => {
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+  }, [route, detail, note, topic, concern]);
+
+  const items = window.ALL_ITEMS;
+  const hashFor = (r, slug) => {
+    if (r === "detail") return `#/items/${slug}`;
+    if (r === "note") return `#/notes/${slug}`;
+    if (r === "playbook") return `#/playbooks/${slug}`;
+    if (r === "catalogueNutrition") return "#/catalogue/nutrition";
+    if (r === "concerns" && slug) return `#/concerns/${slug}`;
+    if (r === "dashboard") return "#/today";
+    if (r === "news") return "#/notes";
+    return `#/${r}`;
+  };
+  const setRoute = (r, slug = null) => {
+    const normalized = r === "catalogueNutrition" ? "catalogue" : r;
+    setRouteState(normalized);
+    setDetail(r === "catalogueNutrition" ? null : slug);
+    setTopic(r === "catalogueNutrition" ? "nutrition" : null);
+    setConcern(r === "concerns" ? slug : null);
+    setNote(r === "note" ? slug : null);
+    const next = hashFor(r, slug);
+    if (window.location.hash !== next) window.history.pushState(null, "", next);
+  };
+  const onPick = (slug) => { if (slug) setRoute("detail", slug); };
+
+  useEffect(() => {
+    const onHash = () => {
+      const next = parseHash();
+      setRouteState(next.route);
+      setDetail(next.detail);
+      setNote(next.note);
+      setTopic(next.topic);
+      setConcern(next.concern);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        document.querySelector(".search input")?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  let crumbs = ["Trajectory"];
+  let view;
+  if (route === "dashboard") { crumbs = ["Trajectory","Today"]; view = <Dashboard items={items} viz={t.viz} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "catalogue") { crumbs = topic === "nutrition" ? ["Trajectory","Catalogue","Nutrition"] : ["Trajectory","Catalogue"]; view = <CatalogueView items={items} viz={t.viz} onPick={onPick} nutritionOnly={topic === "nutrition"} />; }
+  else if (route === "detail") {
+    const it = items.find(i => i.slug === detail);
+    crumbs = ["Trajectory","Catalogue", it ? it.name : "Detail"];
+    view = <DetailView slug={detail} items={items} viz={t.viz} onBack={() => setRoute("catalogue")} onPick={onPick} />;
+  }
+  else if (route === "concerns") { crumbs = ["Trajectory","By concern"]; view = <ConcernsView items={items} viz={t.viz} onPick={onPick} initialTarget={concern} />; }
+  else if (route === "playbooks") { crumbs = ["Trajectory","Playbooks"]; view = <PlaybooksView items={items} setRoute={setRoute} />; }
+  else if (route === "playbook") { crumbs = ["Trajectory","Playbooks", detail]; view = <PlaybookDetailView slug={detail} items={items} viz={t.viz} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "compare") { crumbs = ["Trajectory","Compare"]; view = <CompareView items={items} viz={t.viz} onPick={onPick} />; }
+  else if (route === "nutrition") { crumbs = ["Trajectory","Nutrition"]; view = <NutritionView items={items} viz={t.viz} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "news") { crumbs = ["Trajectory","Notes"]; view = NotesView ? <NotesView onPickPost={(slug) => setRoute("note", slug)} /> : <div className="page"><p>Notes coming soon.</p></div>; }
+  else if (route === "note") {
+    const post = (window.ALL_POSTS || []).find(p => p.slug === note);
+    crumbs = ["Trajectory","Notes", post ? post.title : "Article"];
+    view = <NoteArticleView slug={note} onBack={() => setRoute("news")} onPickPost={(slug) => setRoute("note", slug)} />;
+  }
+  else if (route === "search") { crumbs = ["Trajectory","Search"]; view = <SearchView items={items} query={searchTerm} viz={t.viz} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "methodology") { crumbs = ["Trajectory","Methodology"]; view = <MethodologyView items={items} />; }
+  else if (route === "assessment") { crumbs = ["Trajectory","Assessment"]; view = <AssessmentView items={items} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "account") { crumbs = ["Trajectory","Account"]; view = <AccountView setRoute={setRoute} />; }
+
+  return (
+    <div className="app">
+      <TopNav route={route} detail={detail} note={note} topic={topic} setRoute={(r) => setRoute(r)} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <SubBar crumbs={crumbs} />
+      <div className="main">{view}</div>
+      {window.TweaksPanel && (
+        <window.TweaksPanel title="Tweaks">
+          <window.TweakSection title="Palette">
+            <window.TweakColor label="Theme" value={t.theme} onChange={v => setTweak("theme", v)} options={[
+              { value: "default", swatch: ["#B5723C","#14302E","#F1ECE3"] },
+              { value: "ink", swatch: ["#5C7B6E","#1A1F1C","#ECEAE3"] },
+              { value: "oxblood", swatch: ["#8A3324","#1B1414","#F1ECE3"] },
+            ]} />
+          </window.TweakSection>
+          <window.TweakSection title="Voice">
+            <window.TweakRadio label="Display" value={t.tone} onChange={v => setTweak("tone", v)} options={[
+              { value: "first", label: "Fraunces·italic" },
+              { value: "second", label: "Fraunces" },
+              { value: "news", label: "Newsreader" },
+            ]} />
+          </window.TweakSection>
+          <window.TweakSection title="Score">
+            <window.TweakRadio label="Style" value={t.viz} onChange={v => setTweak("viz", v)} options={[
+              { value: "cell", label: "Numeric" },
+              { value: "bars", label: "Bars" },
+              { value: "ring", label: "Ring" },
+            ]} />
+          </window.TweakSection>
+        </window.TweaksPanel>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

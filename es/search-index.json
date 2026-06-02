@@ -1,0 +1,1670 @@
+[
+  {
+    "type": "stack",
+    "title": "Cardiovascular Protective Stack",
+    "url": "/es/stacks/cardiovascular.html",
+    "blurb": "For the heart-disease-runs-in-the-family situation.",
+    "tags": [
+      "stack",
+      "template"
+    ]
+  },
+  {
+    "type": "stack",
+    "title": "Cognitive Longevity Stack",
+    "url": "/es/stacks/cognitive.html",
+    "blurb": "For brain aging and dementia risk reduction.",
+    "tags": [
+      "stack",
+      "template"
+    ]
+  },
+  {
+    "type": "stack",
+    "title": "The Foundation Stack",
+    "url": "/es/stacks/foundation.html",
+    "blurb": "Foundational only when your context supports it.",
+    "tags": [
+      "stack",
+      "template"
+    ]
+  },
+  {
+    "type": "stack",
+    "title": "Metabolic Reset Stack",
+    "url": "/es/stacks/metabolic.html",
+    "blurb": "For pre-diabetes, fatty liver, and excess weight.",
+    "tags": [
+      "stack",
+      "template"
+    ]
+  },
+  {
+    "type": "stack",
+    "title": "Over-50 Strength Stack",
+    "url": "/es/stacks/over-50-strength.html",
+    "blurb": "The anti-sarcopenia protocol — independence at 80 starts now.",
+    "tags": [
+      "stack",
+      "template"
+    ]
+  },
+  {
+    "type": "tool",
+    "title": "Compare protocols",
+    "url": "/compare.html",
+    "blurb": "Pick 2–4 interventions and see them side by side.",
+    "tags": [
+      "compare",
+      "tool"
+    ]
+  },
+  {
+    "type": "tool",
+    "title": "Take the quest",
+    "url": "/assessment.html",
+    "blurb": "Personalised stack from 8 short questions.",
+    "tags": [
+      "wizard",
+      "quest",
+      "tool"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Blueberries and Anthocyanin-Rich Berries",
+    "url": "/es/items/blueberries-anthocyanins.html",
+    "blurb": "Blueberries and other dark berries are a top dietary source of anthocyanins. Modest RCT evidence for blood pressure, vascular function, and cognition.",
+    "tags": [
+      "lifestyle",
+      "Cardiovascular",
+      "Cognitive support"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Brazil Nuts (Selenium)",
+    "url": "/es/items/brazil-nuts-selenium.html",
+    "blurb": "Cheapest reliable selenium source. 1-2 nuts/day matches RDA. Don't exceed — selenium toxicity is real.",
+    "tags": [
+      "lifestyle",
+      "Mineral",
+      "Antioxidant",
+      "Food"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Calcium (Food First)",
+    "url": "/es/items/calcium-food-first.html",
+    "blurb": "Important for bone, but more is not always better. Food-first calcium plus vitamin D and resistance training beats blind high-dose pills.",
+    "tags": [
+      "lifestyle",
+      "Bone",
+      "Mineral",
+      "Food",
+      "Menopause"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Coffee (Caffeinated)",
+    "url": "/es/items/coffee.html",
+    "blurb": "Daily coffee (3-5 cups) is consistently associated with lower all-cause mortality across dozens of cohort studies. Causality probable but not proven.",
+    "tags": [
+      "lifestyle",
+      "Cardiovascular",
+      "Cognitive support",
+      "Metabolic"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Cold Exposure",
+    "url": "/es/items/cold-exposure.html",
+    "blurb": "Popular biohack with weak longevity evidence. Real for mood + brown adipose activation.",
+    "tags": [
+      "lifestyle",
+      "Hormesis",
+      "Brown fat"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "DASH Diet",
+    "url": "/es/items/dash-diet.html",
+    "blurb": "The best-studied diet pattern for lowering blood pressure. Mediterranean-adjacent, but more explicit about sodium, potassium, and low-fat dairy.",
+    "tags": [
+      "lifestyle",
+      "Diet pattern",
+      "Blood pressure",
+      "Sodium",
+      "Potassium"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Dark Chocolate (cocoa flavanols)",
+    "url": "/es/items/dark-chocolate.html",
+    "blurb": "COSMOS trial (2022, n=21,442) is the first large RCT of cocoa flavanols on hard CV endpoints. 27% reduction in CV death.",
+    "tags": [
+      "lifestyle",
+      "Polyphenol",
+      "Cardiovascular",
+      "Food"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Dietary Nitrate (Beetroot, Leafy Greens)",
+    "url": "/es/items/dietary-nitrate.html",
+    "blurb": "Dietary nitrate from leafy greens and beetroot is converted to nitric oxide. Modest BP reduction and exercise-performance benefit. Whole-food approach beats sup",
+    "tags": [
+      "lifestyle",
+      "Cardiovascular",
+      "Performance",
+      "Blood pressure"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Fermented Foods (yogurt, kimchi, kefir, miso, sauerkraut)",
+    "url": "/es/items/fermented-foods.html",
+    "blurb": "Stanford 2021 RCT: 6 servings/day for 10 weeks increased microbiome diversity AND reduced 19 inflammation markers. The strongest microbiome-modulating intervent",
+    "tags": [
+      "lifestyle",
+      "Microbiome",
+      "Food",
+      "Fermentation"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Flaxseed (ground)",
+    "url": "/es/items/flaxseed.html",
+    "blurb": "Rodriguez-Leyva 2013 RCT: 30g/day reduced SBP by 10 mmHg in hypertensives over 6 months. Bigger BP effect than most foods.",
+    "tags": [
+      "lifestyle",
+      "Fiber",
+      "ALA",
+      "Lignans",
+      "Cardiovascular"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Garlic (raw or aged)",
+    "url": "/es/items/garlic.html",
+    "blurb": "Modest BP and lipid reductions in 30+ RCTs. Stiebeling 2024 added a 1500-person trial confirming the BP signal.",
+    "tags": [
+      "lifestyle",
+      "Food",
+      "Cardiovascular",
+      "Polyphenol"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Ginger",
+    "url": "/es/items/ginger.html",
+    "blurb": "Strong evidence for nausea (chemotherapy + pregnancy + motion). Mixed but real signal for HbA1c and inflammation markers.",
+    "tags": [
+      "lifestyle",
+      "Food",
+      "Anti-inflammatory",
+      "Nausea"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Green Tea (drinking)",
+    "url": "/es/items/green-tea.html",
+    "blurb": "Multiple Japanese cohort studies link 3+ cups/day to lower CV and dementia mortality. Different from isolated EGCG capsules.",
+    "tags": [
+      "lifestyle",
+      "Polyphenol",
+      "Beverage",
+      "Cardiovascular",
+      "Dementia"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Higher Protein Intake (1.2-1.6 g/kg)",
+    "url": "/es/items/protein-intake.html",
+    "blurb": "Protein needs rise with age, training, weight loss, and menopause. 1.2-1.6 g/kg/day is the practical longevity range for most adults over 50.",
+    "tags": [
+      "lifestyle",
+      "Sarcopenia",
+      "Frailty",
+      "Metabolic"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Legumes (beans, lentils, chickpeas)",
+    "url": "/es/items/legumes.html",
+    "blurb": "Strongest single dietary predictor of longevity in Buettner's Blue Zone analyses. Real RCT data for HbA1c and LDL.",
+    "tags": [
+      "lifestyle",
+      "Fiber",
+      "Protein",
+      "Food",
+      "Cardiovascular"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Low / No Alcohol",
+    "url": "/es/items/low-alcohol.html",
+    "blurb": "The 'small amount is good' story is dead. Less is consistently better.",
+    "tags": [
+      "lifestyle",
+      "Diet"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Meditation / Stress Reduction",
+    "url": "/es/items/meditation.html",
+    "blurb": "Modest effects on cardiovascular and inflammatory markers; subjective wellbeing real.",
+    "tags": [
+      "lifestyle",
+      "Mind-body",
+      "Stress"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Mediterranean Diet",
+    "url": "/es/items/mediterranean-diet.html",
+    "blurb": "Strongest single dietary pattern for cardiovascular and all-cause mortality reduction.",
+    "tags": [
+      "lifestyle",
+      "Diet pattern",
+      "PREDIMED-validated"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "No Smoking",
+    "url": "/es/items/no-smoking.html",
+    "blurb": "The single largest modifiable mortality risk. Quitting at any age extends life.",
+    "tags": [
+      "lifestyle",
+      "Tobacco cessation"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Oat β-Glucan (Oatmeal, Oat Bran)",
+    "url": "/es/items/oat-beta-glucan.html",
+    "blurb": "The cholesterol-lowering soluble fiber in oats. FDA-recognized health claim. Eat oatmeal — about as evidence-based as supplements get.",
+    "tags": [
+      "lifestyle",
+      "Cardiovascular",
+      "Metabolic"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Oral Health",
+    "url": "/es/items/oral-health.html",
+    "blurb": "Periodontitis is independently associated with cardiovascular and Alzheimer's risk.",
+    "tags": [
+      "lifestyle",
+      "Periodontal",
+      "Inflammation"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Pomegranate (juice or fruit)",
+    "url": "/es/items/pomegranate.html",
+    "blurb": "Real human RCT data for blood pressure and carotid plaque. Strongest food-source polyphenol evidence outside olive oil.",
+    "tags": [
+      "lifestyle",
+      "Polyphenol",
+      "Cardiovascular",
+      "Food"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Prolonged Fasting / Fasting-Mimicking Diet (FMD)",
+    "url": "/es/items/fasting-mimicking-diet.html",
+    "blurb": "Periodic 3-5 day fasting cycles. Modest metabolic + immune renewal signals.",
+    "tags": [
+      "lifestyle",
+      "Fasting",
+      "Autophagy"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Resistance Training",
+    "url": "/es/items/resistance-training.html",
+    "blurb": "Lean mass and strength are independent mortality predictors. Both decline without training.",
+    "tags": [
+      "lifestyle",
+      "Strength",
+      "Sarcopenia"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Saturated Fat Replacement",
+    "url": "/es/items/saturated-fat-replacement.html",
+    "blurb": "The useful version is not “eat less fat.” Replace butter, cream, cheese, and fatty processed meat with unsaturated fats and high-fiber foods.",
+    "tags": [
+      "lifestyle",
+      "ApoB",
+      "LDL",
+      "Dietary fat",
+      "Cardiovascular"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Sauna (Finnish-Style)",
+    "url": "/es/items/sauna.html",
+    "blurb": "Strong dose-response cohort data on CV and all-cause mortality.",
+    "tags": [
+      "lifestyle",
+      "Heat exposure",
+      "Cardiovascular"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Sleep (7-9h, regularity, deep+REM)",
+    "url": "/es/items/sleep-architecture.html",
+    "blurb": "Chronically <6h or >9h sleep both increase mortality. Regularity matters as much as duration.",
+    "tags": [
+      "lifestyle",
+      "Sleep",
+      "Recovery"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Social Connection",
+    "url": "/es/items/social-connection.html",
+    "blurb": "Loneliness and social isolation increase mortality on the order of smoking 15 cigarettes/day.",
+    "tags": [
+      "lifestyle",
+      "Psychosocial"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Sodium / Potassium Balance",
+    "url": "/es/items/sodium-potassium-balance.html",
+    "blurb": "Lower sodium and higher food-based potassium reliably lower blood pressure. The effect is boring, measurable, and highly actionable.",
+    "tags": [
+      "lifestyle",
+      "Blood pressure",
+      "Electrolytes",
+      "Sodium",
+      "Potassium"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Soy Foods (tofu, tempeh, edamame)",
+    "url": "/es/items/soy-foods.html",
+    "blurb": "A useful protein-and-fiber food swap. Modestly lowers LDL and helps replace red/processed meat without losing protein.",
+    "tags": [
+      "lifestyle",
+      "Protein",
+      "Plant protein",
+      "LDL",
+      "Food"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Sun Exposure / Circadian Alignment",
+    "url": "/es/items/sun-exposure-circadian.html",
+    "blurb": "Daily morning sunlight anchors circadian rhythm. UV trade-off: balance D production with skin cancer risk.",
+    "tags": [
+      "lifestyle",
+      "Circadian",
+      "Vitamin D"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Time-Restricted Eating",
+    "url": "/es/items/time-restricted-eating.html",
+    "blurb": "Compressed eating window. Modest metabolic benefit; mortality data thin.",
+    "tags": [
+      "lifestyle",
+      "Fasting",
+      "Circadian"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Ultra-Processed Food Reduction",
+    "url": "/es/items/ultra-processed-food-reduction.html",
+    "blurb": "The most practical weight, glucose, and cardiometabolic nutrition rule: make packaged hyper-palatable food the exception, not the default.",
+    "tags": [
+      "lifestyle",
+      "Food quality",
+      "Weight",
+      "Metabolic",
+      "Diet pattern"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "VO2max Training",
+    "url": "/es/items/vo2max-training.html",
+    "blurb": "High-intensity intervals push the aerobic ceiling. Strongest single fitness-mortality lever.",
+    "tags": [
+      "lifestyle",
+      "Cardio",
+      "HIIT"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Vaccines (flu, shingles, pneumococcal)",
+    "url": "/es/items/vaccines.html",
+    "blurb": "Annual flu vaccine reduces CV mortality 28% in recent MI patients (IAMI 2021). Shingles vaccine reduces dementia risk 20%. Among the most evidence-supported fou",
+    "tags": [
+      "lifestyle",
+      "Infection",
+      "Foundation",
+      "Cardiovascular"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Walnuts and Tree Nuts",
+    "url": "/es/items/walnuts.html",
+    "blurb": "Daily nut consumption is one of the strongest food-based mortality signals in epidemiology. PREDIMED-NUTS RCT showed ~28% CV-event reduction with ~30g/day mixed",
+    "tags": [
+      "lifestyle",
+      "Cardiovascular",
+      "Cognitive support"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Zone 2 Cardio",
+    "url": "/es/items/zone2-cardio.html",
+    "blurb": "Sub-lactate-threshold steady-state cardio. The mitochondrial-density driver.",
+    "tags": [
+      "lifestyle",
+      "Aerobic",
+      "Mitochondria"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "17α-Estradiol (Men)",
+    "url": "/es/items/17a-estradiol.html",
+    "blurb": "Stereoisomer of estradiol that extends male mouse lifespan without feminization. No human data.",
+    "tags": [
+      "medication",
+      "Non-feminizing estrogen",
+      "Mouse-validated"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "ACE Inhibitors / ARBs",
+    "url": "/es/items/ace-inhibitors.html",
+    "blurb": "Hypertension treatment with mortality benefit and renal protection. Modest direct longevity signal.",
+    "tags": [
+      "medication",
+      "Antihypertensive",
+      "Prescription"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Acarbose",
+    "url": "/es/items/acarbose.html",
+    "blurb": "Carbohydrate-blocker with strong mouse-lifespan signal. Limited human longevity data.",
+    "tags": [
+      "medication",
+      "Alpha-glucosidase inhibitor",
+      "Prescription"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Dasatinib + Quercetin (D+Q Senolytic)",
+    "url": "/es/items/dasatinib-quercetin.html",
+    "blurb": "Mayo Clinic's pioneering senolytic combination. Promising mouse data, early human trials in specific diseases. NOT validated as a healthy-aging intervention. Do",
+    "tags": [
+      "medication",
+      "Senolytic",
+      "Experimental"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Finasteride",
+    "url": "/es/items/finasteride.html",
+    "blurb": "Hair-loss drug with intriguing mortality signal in a large cohort study.",
+    "tags": [
+      "medication",
+      "5α-reductase inhibitor",
+      "Prescription",
+      "Off-label longevity"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "GLP-1 Agonists (Semaglutide, Tirzepatide)",
+    "url": "/es/items/glp1-agonists.html",
+    "blurb": "Major weight-loss class with proven cardiovascular mortality reduction in obese patients.",
+    "tags": [
+      "medication",
+      "GLP-1",
+      "Prescription",
+      "Weight loss"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Low-Dose Aspirin",
+    "url": "/es/items/low-dose-aspirin.html",
+    "blurb": "Useful for secondary prevention. Net benefit in primary prevention is now disputed.",
+    "tags": [
+      "medication",
+      "Antiplatelet",
+      "OTC"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Menopausal Hormone Therapy (estrogen ± progesterone)",
+    "url": "/es/items/hrt-menopause.html",
+    "blurb": "Started within 10 years of menopause, HRT reduces all-cause mortality ~30% and bone fractures substantially. Misunderstood for two decades after the WHI; the ti",
+    "tags": [
+      "medication",
+      "Menopause",
+      "Women's health",
+      "Bone",
+      "Cardiovascular"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Metformin",
+    "url": "/es/items/metformin.html",
+    "blurb": "Diabetes drug with intriguing longevity signal in observational data. TAME trial in progress.",
+    "tags": [
+      "medication",
+      "AMPK activator",
+      "Prescription",
+      "Off-label longevity"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Rapamycin (Sirolimus)",
+    "url": "/es/items/rapamycin.html",
+    "blurb": "The most consistent mammalian-lifespan-extending drug we have. Human longevity data still pending.",
+    "tags": [
+      "medication",
+      "mTOR inhibitor",
+      "Prescription",
+      "Off-label"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "SGLT2 Inhibitors (Empagliflozin, Dapagliflozin)",
+    "url": "/es/items/sglt2-inhibitors.html",
+    "blurb": "Cardio-renal protection in diabetes, heart failure, and CKD — even without diabetes.",
+    "tags": [
+      "medication",
+      "Diabetes",
+      "Heart failure",
+      "CKD"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Statins",
+    "url": "/es/items/statins.html",
+    "blurb": "Single best-validated drug class for reducing cardiovascular mortality.",
+    "tags": [
+      "medication",
+      "LDL reduction",
+      "Prescription"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Testosterone Replacement (TRT) for hypogonadism",
+    "url": "/es/items/trt-hypogonadism.html",
+    "blurb": "For men with confirmed hypogonadism (low T + symptoms): improves muscle mass, mood, sexual function. TRAVERSE 2023 NEJM established CV safety. Not for general '",
+    "tags": [
+      "medication",
+      "Men's health",
+      "Hormones",
+      "Sarcopenia"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Aged Garlic Extract",
+    "url": "/es/items/aged-garlic-extract.html",
+    "blurb": "Garlic extract aged 18-20 months. Multiple meta-analyses show modest but consistent BP reduction. Safer than raw garlic at therapeutic doses.",
+    "tags": [
+      "supplement",
+      "Cardiovascular",
+      "Blood pressure"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Alpha-Lipoic Acid (ALA)",
+    "url": "/es/items/alpha-lipoic-acid.html",
+    "blurb": "Modest evidence for diabetic neuropathy at high doses (600mg+). General-purpose 'antioxidant' marketing exceeds the actual longevity evidence. Consider only for",
+    "tags": [
+      "supplement",
+      "Antioxidant",
+      "Diabetic neuropathy",
+      "Mitochondrial"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Ashwagandha",
+    "url": "/es/items/ashwagandha.html",
+    "blurb": "Adaptogenic herb (Withania somnifera) with consistent small-to-moderate RCT evidence for reducing stress and cortisol. Not a longevity drug.",
+    "tags": [
+      "supplement",
+      "Stress modulation",
+      "Sleep"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Astaxanthin",
+    "url": "/es/items/astaxanthin.html",
+    "blurb": "Powerful carotenoid from microalgae. Modest evidence for skin elasticity, eye fatigue, and lipid oxidation. Marketed beyond what the data supports.",
+    "tags": [
+      "supplement",
+      "Skin",
+      "Eye health",
+      "Antioxidant"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Berberine",
+    "url": "/es/items/berberine.html",
+    "blurb": "'Nature's metformin' — real glucose-lowering effect, no longevity outcome data.",
+    "tags": [
+      "supplement",
+      "AMPK activator",
+      "Glucose control"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "CoQ10 / Ubiquinol",
+    "url": "/es/items/coq10.html",
+    "blurb": "Mitochondrial coenzyme. Specific benefit in heart failure and statin myopathy; modest general signal.",
+    "tags": [
+      "supplement",
+      "Mitochondrial cofactor"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Cocoa Flavanols",
+    "url": "/es/items/cocoa-flavanols.html",
+    "blurb": "Plant compound from cocoa with the strongest RCT evidence of any 'food' supplement for heart-disease death reduction.",
+    "tags": [
+      "supplement",
+      "Cardiovascular",
+      "Vascular function"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Collagen Peptides",
+    "url": "/es/items/collagen-peptides.html",
+    "blurb": "Real evidence for skin and joint endpoints. No longevity outcome data.",
+    "tags": [
+      "supplement",
+      "Protein"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Creatine",
+    "url": "/es/items/creatine.html",
+    "blurb": "Most-studied performance supplement. Real benefit for muscle, modest cognitive signal.",
+    "tags": [
+      "supplement",
+      "Performance",
+      "Cognitive support"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Curcumin",
+    "url": "/es/items/curcumin.html",
+    "blurb": "Anti-inflammatory polyphenol with bioavailability problems and modest clinical effects.",
+    "tags": [
+      "supplement",
+      "Polyphenol",
+      "Anti-inflammatory"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "EGCG (Green Tea)",
+    "url": "/es/items/egcg.html",
+    "blurb": "Green tea consumption associates with lower mortality. EGCG-only pills have safety concerns.",
+    "tags": [
+      "supplement",
+      "Polyphenol",
+      "Catechin"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Ergothioneine",
+    "url": "/es/items/ergothioneine.html",
+    "blurb": "Mushroom-derived amino acid with active uptake transporter. Strong mechanistic story; modest human data.",
+    "tags": [
+      "supplement",
+      "Mushroom-derived antioxidant",
+      "Mitochondria-targeted"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Extra-Virgin Olive Oil (Polyphenols)",
+    "url": "/es/items/olive-oil-evoo.html",
+    "blurb": "The mortality data on EVOO consumption is among the strongest for any 'food'.",
+    "tags": [
+      "supplement",
+      "Mediterranean",
+      "Food-as-medicine"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Fenugreek",
+    "url": "/es/items/fenugreek.html",
+    "blurb": "Real RCT data for HbA1c reduction in T2D. Cheap, safe at typical doses. Modest effect compared to medications.",
+    "tags": [
+      "supplement",
+      "Glycemic control",
+      "Plant",
+      "Diabetes"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Fisetin",
+    "url": "/es/items/fisetin.html",
+    "blurb": "Senolytic flavonoid; clears senescent cells in mice. Human trials underway.",
+    "tags": [
+      "supplement",
+      "Senolytic",
+      "Flavonoid"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Folate (Vitamin B9)",
+    "url": "/es/items/folate.html",
+    "blurb": "Essential B-vitamin. Mandatory in pregnancy (prevents neural tube defects). Modest stroke-prevention evidence in folate-naive populations. Mostly handled by for",
+    "tags": [
+      "supplement",
+      "Cardiovascular",
+      "Cognitive support",
+      "Fertility"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Glucosamine Sulfate",
+    "url": "/es/items/glucosamine-sulfate.html",
+    "blurb": "Originally a joint supplement, but two large observational studies (UK Biobank, NHANES) link daily use to ~15% lower all-cause and CV mortality.",
+    "tags": [
+      "supplement",
+      "Joint health",
+      "Cardiovascular"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "GlyNAC (Glycine + N-Acetylcysteine)",
+    "url": "/es/items/glynac.html",
+    "blurb": "Glutathione-restoring combo with surprisingly strong human pilot data in older adults.",
+    "tags": [
+      "supplement",
+      "Glutathione precursor",
+      "Amino acid combo"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Glycine",
+    "url": "/es/items/glycine.html",
+    "blurb": "Cheap amino acid with small but consistent RCT evidence for improving sleep onset and quality.",
+    "tags": [
+      "supplement",
+      "Sleep",
+      "Metabolic"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Iodine",
+    "url": "/es/items/iodine.html",
+    "blurb": "Essential thyroid nutrient. Boring if adequate, important if vegan/low-iodized-salt, risky at kelp-megadose levels.",
+    "tags": [
+      "supplement",
+      "Thyroid",
+      "Mineral",
+      "Vegan",
+      "Essential nutrient"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "L-Theanine",
+    "url": "/es/items/l-theanine.html",
+    "blurb": "Amino acid found in green tea. Promotes calm focus without sedation. Modest evidence for stress and sleep quality, no effect on lifespan.",
+    "tags": [
+      "supplement",
+      "Cognitive support",
+      "Stress modulation"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Lion's Mane Mushroom",
+    "url": "/es/items/lions-mane.html",
+    "blurb": "Edible mushroom with two small human RCTs in mild cognitive impairment. Promising but underpowered.",
+    "tags": [
+      "supplement",
+      "Cognitive",
+      "Nerve Growth Factor",
+      "Mushroom"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Lithium (Low-Dose / Microdose)",
+    "url": "/es/items/lithium-low-dose.html",
+    "blurb": "Microdosing lithium has cohort data on suicide and dementia. Don't confuse with psychiatric doses.",
+    "tags": [
+      "supplement",
+      "Trace mineral"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Lutein + Zeaxanthin",
+    "url": "/es/items/lutein-zeaxanthin.html",
+    "blurb": "Carotenoids that concentrate in the eye's macula. Strong RCT evidence for slowing age-related macular degeneration progression.",
+    "tags": [
+      "supplement",
+      "Vision",
+      "Cognitive support"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Magnesium",
+    "url": "/es/items/magnesium.html",
+    "blurb": "Common deficiency. Replete it. Repleted state is associated with lower mortality.",
+    "tags": [
+      "supplement",
+      "Mineral"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Melatonin",
+    "url": "/es/items/melatonin.html",
+    "blurb": "Sleep regulator with broader antioxidant + mitochondrial effects. Lower doses better than commonly sold.",
+    "tags": [
+      "supplement",
+      "Circadian",
+      "Antioxidant"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "N-Acetyl Cysteine (NAC)",
+    "url": "/es/items/nac.html",
+    "blurb": "Glutathione precursor with strong evidence for COPD exacerbations and acetaminophen overdose. Modest evidence for general antioxidant benefit.",
+    "tags": [
+      "supplement",
+      "Antioxidant",
+      "Lung health",
+      "Cognitive support"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "NMN (Nicotinamide Mononucleotide)",
+    "url": "/es/items/nmn.html",
+    "blurb": "Popular NAD+ precursor. Raises NAD+ levels in humans; longevity outcome unproven.",
+    "tags": [
+      "supplement",
+      "NAD+ precursor"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "NR (Nicotinamide Riboside)",
+    "url": "/es/items/nr.html",
+    "blurb": "Older sibling of NMN. Same NAD+-raising effect, slightly different pharmacology.",
+    "tags": [
+      "supplement",
+      "NAD+ precursor"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Omega-3 (EPA/DHA)",
+    "url": "/es/items/omega-3.html",
+    "blurb": "Cardiovascular benefit at high pharmacological doses (icosapent ethyl). Mixed at supplement doses.",
+    "tags": [
+      "supplement",
+      "Fish oil",
+      "Cardiovascular"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Plant Sterols / Stanols",
+    "url": "/es/items/plant-sterols-stanols.html",
+    "blurb": "Reliably lowers LDL by about 7-10%. Useful as an ApoB add-on, but not a substitute for statins when risk is high.",
+    "tags": [
+      "supplement",
+      "LDL",
+      "ApoB",
+      "Cholesterol absorption",
+      "Supplement"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Probiotics (Specific Strain Matters)",
+    "url": "/es/items/probiotics.html",
+    "blurb": "Effect is strain-specific. Strong evidence for antibiotic-associated diarrhea and a few specific GI conditions. Marketing claims about general 'gut health' are ",
+    "tags": [
+      "supplement",
+      "Gut health",
+      "Immune"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Psyllium Husk Fiber",
+    "url": "/es/items/psyllium.html",
+    "blurb": "Soluble fiber with FDA-recognized heart-disease risk reduction claim. Lowers LDL cholesterol and improves bowel function. Genuinely useful, often overlooked.",
+    "tags": [
+      "supplement",
+      "Cardiovascular",
+      "Metabolic",
+      "Gut health"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Pterostilbene",
+    "url": "/es/items/pterostilbene.html",
+    "blurb": "Methylated resveratrol analog with better bioavailability. Limited human longevity data.",
+    "tags": [
+      "supplement",
+      "Polyphenol",
+      "Bioavailable resveratrol cousin"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Quercetin",
+    "url": "/es/items/quercetin.html",
+    "blurb": "Flavonoid commonly paired with dasatinib in senolytic protocols.",
+    "tags": [
+      "supplement",
+      "Flavonoid",
+      "Senolytic (combo)"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Red yeast rice",
+    "url": "/es/items/red-yeast-rice.html",
+    "blurb": "Lowers LDL cholesterol because it contains a low dose of lovastatin (a statin). Real effect, real risk, opaque dosing — most people would do better with a real ",
+    "tags": [
+      "supplement",
+      "Cholesterol",
+      "Cardiovascular",
+      "Statin alternative"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Resveratrol",
+    "url": "/es/items/resveratrol.html",
+    "blurb": "Famous red-wine polyphenol. Hype outpaced evidence.",
+    "tags": [
+      "supplement",
+      "Polyphenol",
+      "Sirtuin activator (debated)"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Spermidine",
+    "url": "/es/items/spermidine.html",
+    "blurb": "Polyamine that induces autophagy. Strong cohort mortality signal; cognition RCT results have been mixed.",
+    "tags": [
+      "supplement",
+      "polyamine",
+      "autophagy inducer",
+      "wheat germ"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Sulforaphane (Broccoli Sprouts)",
+    "url": "/es/items/sulforaphane.html",
+    "blurb": "Most potent natural Nrf2 activator. Mainly biomarker data; intriguing autism trial.",
+    "tags": [
+      "supplement",
+      "Nrf2 activator",
+      "Phytochemical"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "TMG (Trimethylglycine / Betaine)",
+    "url": "/es/items/tmg.html",
+    "blurb": "Methyl donor often paired with NMN/NR to support methylation balance.",
+    "tags": [
+      "supplement",
+      "Methyl donor"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Taurine",
+    "url": "/es/items/taurine.html",
+    "blurb": "Amino acid with strong 2023 mouse lifespan signal. Human longevity data uncertain.",
+    "tags": [
+      "supplement",
+      "Amino acid",
+      "Mouse-validated"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Urolithin A",
+    "url": "/es/items/urolithin-a.html",
+    "blurb": "Postbiotic that induces mitophagy. Real human muscle-function data.",
+    "tags": [
+      "supplement",
+      "Mitophagy inducer",
+      "Postbiotic"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Vitamin B12",
+    "url": "/es/items/vitamin-b12.html",
+    "blurb": "Essential vitamin. Deficiency is common in older adults and vegans, causes irreversible neuro damage. Supplementation only matters if you're deficient.",
+    "tags": [
+      "supplement",
+      "Cognitive support",
+      "Energy",
+      "Neurological"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Vitamin C",
+    "url": "/es/items/vitamin-c.html",
+    "blurb": "Essential vitamin. Strong evidence for preventing scurvy. Modest evidence for cold-duration shortening. Megadoses do nothing extra.",
+    "tags": [
+      "supplement",
+      "Antioxidant",
+      "Immune"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Vitamin D3",
+    "url": "/es/items/vitamin-d3.html",
+    "blurb": "Replete deficiency, yes. Supplement above sufficiency for longevity? Marginal.",
+    "tags": [
+      "supplement",
+      "Vitamin",
+      "Hormone precursor"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Vitamin K2 (MK-7, MK-4)",
+    "url": "/es/items/vitamin-k2.html",
+    "blurb": "Theoretical role in vascular calcification reduction. Strong cohort data, weak RCT data.",
+    "tags": [
+      "supplement",
+      "Vitamin",
+      "Vascular calcification"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Whey Protein",
+    "url": "/es/items/whey-protein.html",
+    "blurb": "The most-studied protein source for muscle synthesis. Most useful for older adults who under-eat protein and people who train.",
+    "tags": [
+      "supplement",
+      "Protein",
+      "Sarcopenia",
+      "Resistance training"
+    ]
+  },
+  {
+    "type": "protocol",
+    "title": "Zinc",
+    "url": "/es/items/zinc.html",
+    "blurb": "Essential mineral. Strong evidence for shortening colds when taken within 24h of symptoms. Long-term high doses cause copper deficiency.",
+    "tags": [
+      "supplement",
+      "Immune",
+      "Cognitive support"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Nutrition schools of thought: what to take, what to leave",
+    "url": "/es/news/nutrition-schools-longevity.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "nutrition",
+      "evidence",
+      "frameworks"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Protein after 50: age, sex, muscle, and the grams that actually matter",
+    "url": "/es/news/protein-age-sex-longevity.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "nutrition",
+      "protein",
+      "sarcopenia"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "ApoB — the one CV number worth knowing if you only know one",
+    "url": "/es/news/apob-the-one-number.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "labs",
+      "cardiovascular"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Cardiovascular disease — the big picture, in order",
+    "url": "/es/news/cardiovascular-the-big-picture.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "cardiovascular",
+      "methodology",
+      "framework"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Inflammation: the through-line that explains half the catalogue",
+    "url": "/es/news/inflammation-the-through-line.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "inflammation",
+      "mechanism",
+      "philosophy",
+      "methodology"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Is X worth taking? — five questions before any new supplement",
+    "url": "/es/news/is-x-worth-taking.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "supplements",
+      "framework"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Menopause and longevity — what the data actually says",
+    "url": "/es/news/menopause-and-longevity.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "hormones",
+      "women-health",
+      "methodology",
+      "hrt"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Resistance training — what to actually do",
+    "url": "/es/news/resistance-training-protocol.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "exercise",
+      "resistance-training",
+      "sarcopenia",
+      "bone-health"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Supplements we don't recommend (and why)",
+    "url": "/es/news/supplements-we-dont-recommend.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "supplements",
+      "evidence",
+      "what-not-to-take"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "31 pivotal trials we re-read this week",
+    "url": "/es/news/31-pivotal-trials.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "statins",
+      "metformin",
+      "glp-1",
+      "vo2max",
+      "sleep",
+      "omega-3"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Five things we got wrong in version 1",
+    "url": "/es/news/five-things-we-got-wrong.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "wizard",
+      "transparency"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Lab tests worth getting (and ones that aren't)",
+    "url": "/es/news/lab-tests-worth-getting.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "labs",
+      "practical"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Sleep — the highest-leverage intervention you can do tonight",
+    "url": "/es/news/sleep-tonight.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "sleep",
+      "lifestyle",
+      "foundation"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "The bottle and the evidence",
+    "url": "/es/news/the-bottle-and-the-evidence.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "supplements",
+      "industry"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "The quest gives you 5–12 things, not 73",
+    "url": "/es/news/the-quest-five-not-seventy.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "wizard",
+      "philosophy"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "The twelve foundations",
+    "url": "/es/news/the-twelve-foundations.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "foundations",
+      "opinion",
+      "philosophy"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "This week in longevity — May 6, 2026",
+    "url": "/es/news/this-week-in-longevity.html",
+    "blurb": "GLP-1 cardiovascular signal continues to harden; NAD precursors still searching for their endpoint; the AHA doubles down on VO2max as the vital sign nobody meas",
+    "tags": [
+      "digest",
+      "digest",
+      "glp1",
+      "nmn",
+      "sleep",
+      "vo2max"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "VO2max — the strongest single number you can know about your health",
+    "url": "/es/news/vo2max-the-strongest-number.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "vo2max",
+      "exercise",
+      "mortality"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "What I'd actually take if I were 50",
+    "url": "/es/news/what-id-take-at-50.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "personal-stack",
+      "worked-example"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Why we have 73 interventions, not 700",
+    "url": "/es/news/why-73-not-700.html",
+    "blurb": "",
+    "tags": [
+      "",
+      "methodology",
+      "philosophy",
+      "curation"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "FDA expands tirzepatide label to include cardiovascular event reduction",
+    "url": "/es/news/tirzepatide-cv-label.html",
+    "blurb": "Tirzepatide joins semaglutide on the short list of weight-loss drugs with a formal cardiovascular indication — meaningfully changing the insurance and prescribi",
+    "tags": [
+      "fda",
+      "glp1",
+      "tirzepatide",
+      "cardiovascular",
+      "fda"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Why VO2max is the vital sign nobody measures (and how to measure yours)",
+    "url": "/es/news/vo2max-vital-sign.html",
+    "blurb": "Cardiorespiratory fitness predicts all-cause mortality more strongly than smoking, hypertension, and diabetes — and unlike those, your doctor probably hasn't me",
+    "tags": [
+      "mechanism",
+      "vo2max",
+      "cardio",
+      "mechanism",
+      "mortality"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Stop chasing rapamycin until you're sleeping 7.5 hours",
+    "url": "/es/news/stop-chasing-rapamycin.html",
+    "blurb": "The rapamycin discourse has gotten ahead of the data. The math says: fix sleep, train VO2max, eat Mediterranean — those have a 50–100× larger expected mortality",
+    "tags": [
+      "opinion",
+      "opinion",
+      "rapamycin",
+      "sleep",
+      "foundation"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "New trial readout — creatine and cognitive performance in older adults",
+    "url": "/es/news/creatine-cognitive-readout.html",
+    "blurb": "A new 24-week RCT in adults 60+ shows modest but real improvements in working memory and processing speed with 5g/day creatine. Effect was concentrated in veget",
+    "tags": [
+      "trial-readout",
+      "creatine",
+      "cognitive",
+      "supplements",
+      "trial"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "The fiber protocol nobody runs — and why your gut ages faster without it",
+    "url": "/es/news/fiber-protocol.html",
+    "blurb": "Most adults eat half the fiber the data supports. Fixing that is one of the highest-leverage, lowest-cost moves available — and it works through three independe",
+    "tags": [
+      "mechanism",
+      "fiber",
+      "gut",
+      "mechanism",
+      "ldl",
+      "microbiome"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Zone 2 cardio: what it actually is, and why it isn't a fad",
+    "url": "/es/news/zone-2-cardio-explained.html",
+    "blurb": "Zone 2 isn't a heart-rate gimmick — it's the specific intensity at which mitochondria are forced to adapt. Three sessions a week is the dose.",
+    "tags": [
+      "mechanism",
+      "zone2",
+      "cardio",
+      "mitochondria",
+      "mechanism"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "The protein RDA is wrong for adults over 50",
+    "url": "/es/news/protein-myth.html",
+    "blurb": "The 0.8 g/kg/day RDA was set in 1968 for healthy young adults — and it's wrong for almost everyone over 50. The newer evidence-based target is 1.2–1.6 g/kg/day,",
+    "tags": [
+      "opinion",
+      "protein",
+      "sarcopenia",
+      "frailty",
+      "opinion",
+      "rda"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Vitamin D after VITAL: where the evidence actually lands",
+    "url": "/es/news/vitamin-d-update.html",
+    "blurb": "VITAL didn't kill vitamin D — it killed the idea that supplementing vitamin D in vitamin-D-replete adults would prevent cancer or cardiovascular events. The fra",
+    "tags": [
+      "trial-readout",
+      "vitamin-d",
+      "vitamin-d3",
+      "fracture",
+      "falls",
+      "supplements"
+    ]
+  },
+  {
+    "type": "post",
+    "title": "Grip strength is a better mortality predictor than your blood pressure",
+    "url": "/es/news/grip-strength.html",
+    "blurb": "A $20 hand dynamometer measures something more predictive of all-cause mortality than systolic BP, ApoB, or HbA1c. Most adults have never had it tested.",
+    "tags": [
+      "mechanism",
+      "grip-strength",
+      "sarcopenia",
+      "mortality",
+      "biomarkers",
+      "mechanism"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Heart disease",
+    "url": "/es/targets/cvd.html",
+    "blurb": "",
+    "tags": [
+      "cvd"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Cognitive decline",
+    "url": "/es/targets/cognitive-decline.html",
+    "blurb": "",
+    "tags": [
+      "cognitive-decline"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Immune aging",
+    "url": "/es/targets/immune-decline.html",
+    "blurb": "",
+    "tags": [
+      "immune-decline"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Frailty",
+    "url": "/es/targets/frailty.html",
+    "blurb": "",
+    "tags": [
+      "frailty"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Muscle loss (sarcopenia)",
+    "url": "/es/targets/sarcopenia.html",
+    "blurb": "",
+    "tags": [
+      "sarcopenia"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Diabetes / metabolic",
+    "url": "/es/targets/metabolic.html",
+    "blurb": "",
+    "tags": [
+      "metabolic"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Other neurodegenerative",
+    "url": "/es/targets/neurodegenerative-other.html",
+    "blurb": "",
+    "tags": [
+      "neurodegenerative-other"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Chronic inflammation",
+    "url": "/es/targets/inflammaging.html",
+    "blurb": "",
+    "tags": [
+      "inflammaging"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Cancer",
+    "url": "/es/targets/cancer.html",
+    "blurb": "",
+    "tags": [
+      "cancer"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Mitochondrial decline",
+    "url": "/es/targets/mitochondrial.html",
+    "blurb": "",
+    "tags": [
+      "mitochondrial"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Bone loss / osteoporosis",
+    "url": "/es/targets/bone-loss.html",
+    "blurb": "",
+    "tags": [
+      "bone-loss"
+    ]
+  },
+  {
+    "type": "concern",
+    "title": "Cellular senescence",
+    "url": "/es/targets/senescence.html",
+    "blurb": "",
+    "tags": [
+      "senescence"
+    ]
+  }
+]

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trajectory — Evidence-graded longevity</title>
+<meta name="description" content="Trajectory is an evidence-graded longevity guide that ranks interventions by human evidence, expected effect size, and practical usefulness." />
+<link rel="stylesheet" href="styles/app.css?v=20260602b" />
+<link rel="stylesheet" href="styles/redesign-clean.css?v=20260602b" />
+</head>
+<body data-theme="default" data-tone="first">
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="app/items.jsx?v=20260602b"></script>
+<script type="text/babel" src="app/posts.jsx?v=20260602b"></script>
+<script type="text/babel" src="app/ui.jsx?v=20260602b"></script>
+<script type="text/babel" src="app/shell.jsx?v=20260602b"></script>
+<script type="text/babel" src="app/dashboard.jsx?v=20260602b"></script>
+<script type="text/babel" src="app/views.jsx?v=20260602b"></script>
+<script type="text/babel" src="app/tweaks-panel.jsx?v=20260602b"></script>
+<script type="text/babel" src="app/i18n.jsx?v=20260602b"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+const { TopNav, SubBar } = window.Shell;
+const { Dashboard } = window;
+const { CatalogueView, DetailView, ConcernsView, NutritionView, PlaybooksView, PlaybookDetailView, CompareView, SearchView, MissionView, MethodologyView, AssessmentView, AccountView, StacksView, StackDetailView, NotesView, NoteArticleView } = window.Views;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "default",
+  "tone": "first",
+  "viz": "cell"
+}/*EDITMODE-END*/;
+
+function AccountFallback({ setRoute }) {
+  const loadLocalAccount = () => {
+    try {
+      const parsed = JSON.parse(localStorage.getItem("trajectory.account.v1") || "{}");
+      return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+    } catch (e) {
+      return {};
+    }
+  };
+  const [localAccount, setLocalAccount] = useState(loadLocalAccount);
+  const [mode, setMode] = useState("register");
+  const [form, setForm] = useState({ email: localAccount.email || "", name: localAccount.name || "", password: "" });
+  const [status, setStatus] = useState("");
+  const assessment = localAccount.assessment || {};
+  const concerns = Array.isArray(assessment.concerns) ? assessment.concerns : [];
+  const signals = Array.isArray(assessment.signals) ? assessment.signals : [];
+  const constraints = Array.isArray(assessment.constraints) ? assessment.constraints : [];
+  const plan = localAccount.plan || {};
+  const thisWeek = Array.isArray(plan.fixFirst) ? plan.fixFirst.slice(0, 4) : [];
+  const watchlist = Array.isArray(localAccount.watchlist) ? localAccount.watchlist : [];
+  const progress = localAccount.progress || {};
+  const completedActions = progress.completedActions || {};
+  const completedCount = thisWeek.filter(item => completedActions[item.slug || item.name]).length;
+  const completionPercent = thisWeek.length ? Math.round((completedCount / thisWeek.length) * 100) : 0;
+  const answerCount = Object.values(assessment).filter(value => Array.isArray(value) ? value.length : !!value).length;
+  const hasPacket = !!(plan.generatedAt && thisWeek.length);
+  const hasAccount = !!localAccount.email;
+  const primaryAction = !answerCount ? "Start assessment" : hasPacket ? "Review this week" : "Generate packet";
+  const markers = localAccount.markers || {};
+  const markerRows = [
+    ["bloodPressure", "Blood pressure", "e.g. 118/76", "Cardiometabolic"],
+    ["apoB", "ApoB", "mg/dL", "Lipids"],
+    ["hba1c", "HbA1c", "%", "Metabolic"],
+    ["gripStrength", "Grip strength", "kg", "Muscle"],
+    ["sleep", "Sleep average", "hours", "Recovery"],
+    ["training", "Training", "sessions/week", "Fitness"],
+  ];
+  const numberFrom = (value) => {
+    const match = String(value || "").match(/\d+(\.\d+)?/);
+    return match ? Number(match[0]) : null;
+  };
+  const bpMatch = String(markers.bloodPressure || "").match(/(\d{2,3})\s*\/\s*(\d{2,3})/);
+  const markerInsights = [
+    bpMatch && (Number(bpMatch[1]) >= 130 || Number(bpMatch[2]) >= 80) ? ["Blood pressure", "Prioritize DASH-style diet, sodium/potassium balance, Zone 2, and clinician review if repeated."] : null,
+    numberFrom(markers.apoB) !== null && numberFrom(markers.apoB) >= 90 ? ["ApoB", "Keep LDL/ApoB-lowering levers near the top: saturated-fat replacement, soluble fiber, and medication discussion when risk is high."] : null,
+    numberFrom(markers.hba1c) !== null && numberFrom(markers.hba1c) >= 5.7 ? ["HbA1c", "Metabolic work should stay visible: resistance training, Zone 2, protein/fiber structure, and ultra-processed-food reduction."] : null,
+    numberFrom(markers.sleep) !== null && numberFrom(markers.sleep) < 7 ? ["Sleep", "Recovery is likely constraining everything else. Keep sleep timing, light, alcohol, and schedule regularity on the weekly list."] : null,
+    numberFrom(markers.training) !== null && numberFrom(markers.training) < 2 ? ["Training", "Strength training frequency is below the usual longevity floor. Make the next plan easier before adding supplements."] : null,
+  ].filter(Boolean);
+  const nextOpenAction = thisWeek.find(item => !completedActions[item.slug || item.name]);
+  const primaryMarkerInsight = markerInsights[0];
+  const readNext = watchlist[0];
+  const saveLocal = (patch) => {
+    const next = { ...localAccount, ...patch, updatedAt: new Date().toISOString() };
+    localStorage.setItem("trajectory.account.v1", JSON.stringify(next));
+    setLocalAccount(next);
+    return next;
+  };
+  const updateMarker = (key, value) => {
+    saveLocal({ markers: { ...markers, [key]: value } });
+  };
+  const toggleAction = (item) => {
+    const key = item.slug || item.name;
+    saveLocal({
+      progress: {
+        ...progress,
+        completedActions: {
+          ...completedActions,
+          [key]: !completedActions[key],
+        },
+      },
+    });
+  };
+  const submit = async () => {
+    setStatus(mode === "register" ? "Creating account..." : "Signing in...");
+    try {
+      const nextLocal = saveLocal({ email: form.email, name: form.name || localAccount.name || "" });
+      const res = await fetch(mode === "register" ? "/api/auth/register" : "/api/auth/login", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok || data.ok === false) throw new Error(data.error || "Could not authenticate");
+      await fetch("/api/account/profile", {
+        method: "PUT",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: nextLocal.name || "",
+          newsletters: nextLocal.newsletters || [],
+          assessment: nextLocal.assessment || {},
+          plan: nextLocal.plan || {},
+          watchlist: nextLocal.watchlist || [],
+          progress: nextLocal.progress || {},
+          markers: nextLocal.markers || {},
+          checkInNote: nextLocal.checkInNote || "",
+          stackInterest: nextLocal.stackInterest || {},
+        }),
+      }).catch(() => {});
+      setStatus(data.user?.email ? `Signed in and synced ${data.user.email}` : "Signed in and synced");
+    } catch (error) {
+      setStatus(error.message || "Could not authenticate");
+    }
+  };
+  return (
+    <div className="page account-page">
+      <header className="account-hero">
+        <div>
+          <div className="kicker clay" style={{ marginBottom: 12 }}><span className="bullet" />Account</div>
+          <h1 className="display">Your personal longevity hub.</h1>
+          <p>Keep the publication free, build a personal path, save a review packet, and return to the same small set of next actions.</p>
+        </div>
+        <button className="btn primary" onClick={() => setRoute("assessment")}>{primaryAction} →</button>
+      </header>
+      <section className="path-hub">
+        <div className="path-hub-head">
+          <div>
+            <div className="kicker clay"><span className="bullet" />Personal operating system</div>
+            <h2 className="display">{answerCount ? "Your saved path is ready." : "Start with a baseline."}</h2>
+            <p>{answerCount ? "Your assessment is saved locally. Create an account to sync it, then use this hub as the return point." : "Take the assessment once, then Trajectory can turn the catalogue into a usable weekly path."}</p>
+          </div>
+          <div className="path-score">
+            <strong>{hasPacket ? `${completionPercent}%` : answerCount}</strong>
+            <span>{hasPacket ? "weekly path done" : "answers saved"}</span>
+          </div>
+        </div>
+        <div className="account-flow-rail" aria-label="Personal longevity flow">
+          {[
+            ["Baseline", answerCount ? "Done" : "Start"],
+            ["Packet", hasPacket ? "Ready" : "Next"],
+            ["Account", hasAccount ? "Synced" : "Local"],
+            ["Weekly loop", thisWeek.length ? `${completedCount}/${thisWeek.length}` : "Waiting"],
+          ].map(([label, value], index) => (
+            <div key={label} className={`account-flow-step ${index === 0 && answerCount ? "done" : ""} ${index === 1 && hasPacket ? "done" : ""} ${index === 2 && hasAccount ? "done" : ""} ${index === 3 && completedCount ? "done" : ""}`}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{label}</strong>
+              <small>{value}</small>
+            </div>
+          ))}
+        </div>
+        <div className="path-hub-grid">
+          <div className="path-panel">
+            <div className="kicker">Assessment context</div>
+            <div className="path-context-row"><span>Focus</span><strong>{concerns.slice(0, 2).join(" + ") || "Not set"}</strong></div>
+            <div className="path-context-row"><span>Signals</span><strong>{signals.slice(0, 2).join(" + ") || "Not set"}</strong></div>
+            <div className="path-context-row"><span>Constraints</span><strong>{constraints.slice(0, 2).join(" + ") || "Not set"}</strong></div>
+            <button className="btn primary" onClick={() => setRoute("assessment")}>{answerCount ? "Update assessment" : "Start assessment"}</button>
+          </div>
+          <div className="path-panel">
+            <div className="kicker">Evidence focus</div>
+            <h3 className="display" style={{ fontSize: 28, lineHeight: 1.05, margin: "0 0 10px" }}>{readNext?.name || "Build a watchlist"}</h3>
+            <p>{readNext ? "Your watchlist turns the catalogue into a focused reading path." : "Finish the assessment to save a focused set of evidence pages and weekly actions."}</p>
+            <button className="btn secondary" onClick={() => readNext?.slug ? setRoute("detail", readNext.slug) : setRoute("catalogue")}>{readNext?.slug ? "Open evidence" : "Open catalogue"}</button>
+          </div>
+          <div className="path-panel">
+            <div className="kicker">Next action</div>
+            <h3 className="display" style={{ fontSize: 28, lineHeight: 1.05, margin: "0 0 10px" }}>{nextOpenAction?.name || (thisWeek.length ? "All clear for this week." : (answerCount ? "Review your packet." : "Generate your packet."))}</h3>
+            <p>{nextOpenAction?.summary || (thisWeek.length ? "Your current checklist is complete. Refresh the assessment when your context changes." : (answerCount ? "The assessment has context. Return to the results to refresh your packet and watchlist." : "The packet is the bridge from reading to doing."))}</p>
+            <button className="btn secondary" onClick={() => setRoute("assessment")}>{hasPacket ? "Refresh packet" : "Build review packet"}</button>
+          </div>
+        </div>
+      </section>
+      <section className="account-priority-board" aria-label="Weekly priorities">
+        <div className="account-priority-card primary">
+          <span>01 · Do next</span>
+          <strong>{nextOpenAction?.name || (hasPacket ? "Close the weekly loop" : "Build your first packet")}</strong>
+          <p>{nextOpenAction?.summary || (hasPacket ? "Your current actions are complete. Re-run the assessment when labs, training, sleep, or constraints change." : "The assessment turns the catalogue into a focused path and saves the review packet here.")}</p>
+          <button className="btn primary" onClick={() => nextOpenAction?.slug ? setRoute("detail", nextOpenAction.slug) : setRoute("assessment")}>{nextOpenAction?.slug ? "Open evidence" : "Start assessment"}</button>
+        </div>
+        <div className="account-priority-card">
+          <span>02 · Marker cue</span>
+          <strong>{primaryMarkerInsight ? primaryMarkerInsight[0] : "Add a recent baseline"}</strong>
+          <p>{primaryMarkerInsight ? primaryMarkerInsight[1] : "Add BP, ApoB, HbA1c, sleep, training, and strength so Trajectory can keep the plan grounded in measurable context."}</p>
+          <button className="btn secondary" onClick={() => document.querySelector(".account-marker-section")?.scrollIntoView({ behavior: "smooth", block: "start" })}>Review markers</button>
+        </div>
+        <div className="account-priority-card">
+          <span>03 · Read next</span>
+          <strong>{readNext?.name || "Methodology before tactics"}</strong>
+          <p>{readNext ? `This is in your watchlist because it is tagged ${readNext.reason || "from your packet"}.` : "If there is no watchlist yet, start with the scoring model so interventions stay comparable."}</p>
+          <button className="btn secondary" onClick={() => readNext?.slug ? setRoute("detail", readNext.slug) : setRoute("methodology")}>{readNext?.slug ? "Open article" : "How scoring works"}</button>
+        </div>
+        <div className="account-priority-card">
+          <span>04 · Continuity</span>
+          <strong>{hasAccount ? "Profile can sync" : "Protect the profile"}</strong>
+          <p>{hasAccount ? "Your email is attached locally. Use sync when you want the profile available beyond this browser." : "Create a free account when the local path is worth keeping across devices."}</p>
+          <button className="btn secondary" onClick={() => document.querySelector(".account-grid")?.scrollIntoView({ behavior: "smooth", block: "start" })}>{hasAccount ? "Sync below" : "Create account"}</button>
+        </div>
+      </section>
+      <section className="account-section account-marker-section">
+        <div className="account-section-head">
+          <div>
+            <div className="kicker clay"><span className="bullet" />Baseline markers</div>
+            <h2 className="display">Track the numbers that change the plan.</h2>
+          </div>
+          <button className="btn secondary" onClick={() => setRoute("assessment")}>Update context</button>
+        </div>
+        <div className="account-marker-grid">
+          {markerRows.map(([key, label, placeholder, group]) => (
+            <label key={key} className="account-marker-card">
+              <span>{group}</span>
+              <strong>{label}</strong>
+              <input value={markers[key] || ""} placeholder={placeholder} onChange={e => updateMarker(key, e.target.value)} />
+            </label>
+          ))}
+        </div>
+        <div className="account-marker-insights">
+          {markerInsights.length ? markerInsights.map(([label, text]) => (
+            <div key={label}>
+              <strong>{label}</strong>
+              <span>{text}</span>
+            </div>
+          )) : (
+            <div>
+              <strong>Marker review</strong>
+              <span>Add recent values to make the hub more useful. Trajectory keeps the prompt conservative: repeated abnormal markers should be reviewed clinically.</span>
+            </div>
+          )}
+        </div>
+        <label className="account-note-field">
+          <span>Current note</span>
+          <textarea value={localAccount.checkInNote || ""} placeholder="What changed this week? Symptoms, labs, training, sleep, medications, or constraints." onChange={e => saveLocal({ checkInNote: e.target.value })} />
+        </label>
+      </section>
+      {thisWeek.length > 0 && (
+        <section className="account-section">
+          <div className="account-section-head">
+            <div>
+              <div className="kicker clay"><span className="bullet" />This week</div>
+              <h2 className="display">The short list.</h2>
+            </div>
+            <button className="btn secondary" onClick={() => setRoute("assessment")}>Refresh plan</button>
+          </div>
+          <div className="account-action-list">
+            {thisWeek.map((item, index) => (
+              <button key={item.slug || item.name} className={`account-action-row ${completedActions[item.slug || item.name] ? "complete" : ""}`} onClick={() => toggleAction(item)}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <strong>{item.name}</strong>
+                  <small>{item.summary || item.action || "Saved from your review packet."}</small>
+                </div>
+                <em>{completedActions[item.slug || item.name] ? "Done" : (item.evidence || "A")}</em>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+      {watchlist.length > 0 && (
+        <section className="account-section">
+          <div className="account-section-head">
+            <div>
+              <div className="kicker clay"><span className="bullet" />Evidence watchlist</div>
+              <h2 className="display">What to keep watching.</h2>
+            </div>
+            <button className="btn secondary" onClick={() => setRoute("catalogue")}>Open catalogue</button>
+          </div>
+          <div className="account-watch-grid">
+            {watchlist.slice(0, 6).map(item => (
+              <button key={item.slug || item.name} className="account-watch-card" onClick={() => setRoute("detail", item.slug)}>
+                <strong>{item.name}</strong>
+                <small>{item.reason || "watchlist"} · evidence {item.evidence || "review"}</small>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+      <div className="account-grid">
+        <section className="card card-pad">
+          <div className="kicker" style={{ marginBottom: 12 }}>{mode === "register" ? "Create account" : "Sign in"}</div>
+          <label className="form-label">Email</label>
+          <input className="text-input" type="email" value={form.email} placeholder="you@example.com" onChange={e => setForm({ ...form, email: e.target.value })} />
+          <label className="form-label">Name</label>
+          <input className="text-input" value={form.name} placeholder="Optional" onChange={e => setForm({ ...form, name: e.target.value })} />
+          <label className="form-label">Password</label>
+          <input className="text-input" type="password" value={form.password} placeholder="At least 8 characters" onChange={e => setForm({ ...form, password: e.target.value })} />
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 14 }}>
+            <button className="btn primary" onClick={submit}>{mode === "register" ? "Create account" : "Sign in"}</button>
+            <button className="btn ghost" onClick={() => setMode(mode === "register" ? "login" : "register")}>{mode === "register" ? "I already have one" : "Create one instead"}</button>
+          </div>
+          {status && <div className="save-toast">{status}</div>}
+        </section>
+        <section className="card card-pad">
+          <div className="kicker" style={{ marginBottom: 12 }}>What saves here</div>
+          <p className="assessment-fineprint">Assessment, review packet, watchlist, marker notes, and weekly progress can sync to your account. Content access remains free regardless of sign-in.</p>
+          <p className="assessment-fineprint">{watchlist.length ? `${watchlist.length} protocols are in your evidence watchlist.` : "No watchlist yet. Finishing the assessment creates one automatically."}</p>
+          <button className="btn secondary" onClick={() => setRoute("assessment")}>Build review packet</button>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const parseHash = () => {
+    const hash = (window.location.hash || "#/today").replace(/^#\/?/, "");
+    const parts = hash.split("/").filter(Boolean);
+    if (parts[0] === "items" && parts[1]) return { route: "detail", detail: parts[1] };
+    if (parts[0] === "playbooks" && parts[1]) return { route: "playbook", detail: parts[1] };
+    if (parts[0] === "playbooks") return { route: "playbooks", detail: null };
+    if (parts[0] === "compare") return { route: "compare", detail: null };
+    if (parts[0] === "catalogue" && parts[1] === "nutrition") return { route: "catalogue", detail: null, topic: "nutrition" };
+    if (parts[0] === "catalogue") return { route: "catalogue", detail: null, topic: null };
+    if (parts[0] === "nutrition") return { route: "nutrition", detail: null };
+    if (parts[0] === "lifestyle") return { route: "lifestyle", detail: null };
+    if (parts[0] === "supplements") return { route: "supplements", detail: null };
+    if (parts[0] === "medications") return { route: "medications", detail: null };
+    if (parts[0] === "concerns" || parts[0] === "targets") return { route: "concerns", detail: null, concern: parts[1] || null };
+    if ((parts[0] === "notes" || parts[0] === "news") && parts[1]) return { route: "note", detail: null, note: parts[1] };
+    if (parts[0] === "notes" || parts[0] === "news") return { route: "news", detail: null, note: null };
+    if (parts[0] === "stacks" || parts[0] === "plans") {
+      window.history.replaceState(null, "", "#/catalogue");
+      return { route: "catalogue", detail: null, topic: null };
+    }
+    if (parts[0] === "methodology") return { route: "methodology", detail: null };
+    if (parts[0] === "mission" || parts[0] === "about") return { route: "mission", detail: null };
+    if (parts[0] === "assessment") return { route: "assessment", detail: null };
+    if (parts[0] === "account") return { route: "account", detail: null };
+    if (parts[0] === "search") return { route: "search", detail: null };
+    return { route: "dashboard", detail: null, note: null };
+  };
+  const initial = parseHash();
+  const [route, setRouteState] = useState(initial.route);
+  const [detail, setDetail] = useState(initial.detail);
+  const [note, setNote] = useState(initial.note);
+  const [topic, setTopic] = useState(initial.topic);
+  const [concern, setConcern] = useState(initial.concern);
+  const [searchTerm, setSearchTerm] = useState("");
+  const hook = window.useTweaks ? window.useTweaks(TWEAK_DEFAULTS) : [TWEAK_DEFAULTS, () => {}];
+  const t = hook[0];
+  const setTweak = hook[1];
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+  }, []);
+
+  useEffect(() => {
+    document.body.dataset.theme = t.theme;
+    document.body.dataset.tone = t.tone;
+  }, [t.theme, t.tone]);
+
+  useEffect(() => {
+    window.trackTrajectoryEvent && window.trackTrajectoryEvent("page_view", { route, detail, note, topic, language: "en" });
+  }, [route, detail, note, topic]);
+
+  useEffect(() => {
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+  }, [route, detail, note, topic, concern]);
+
+  const items = window.ALL_ITEMS;
+  const hashFor = (r, slug) => {
+    if (r === "detail") return `#/items/${slug}`;
+    if (r === "note") return `#/notes/${slug}`;
+    if (r === "playbook") return `#/playbooks/${slug}`;
+    if (r === "stack") return "#/catalogue";
+    if (r === "catalogueNutrition") return "#/catalogue/nutrition";
+    if (r === "concerns" && slug) return `#/concerns/${slug}`;
+    if (r === "dashboard") return "#/today";
+    if (r === "news") return "#/notes";
+    if (r === "lifestyle") return "#/lifestyle";
+    if (r === "supplements") return "#/supplements";
+    if (r === "medications") return "#/medications";
+    return `#/${r}`;
+  };
+  const setRoute = (r, slug = null) => {
+    if (r === "plans" || r === "stacks" || r === "stack") r = "catalogue";
+    const normalized = r === "catalogueNutrition" ? "catalogue" : r;
+    setRouteState(normalized);
+    setDetail(r === "catalogueNutrition" ? null : slug);
+    setTopic(r === "catalogueNutrition" ? "nutrition" : null);
+    setConcern(r === "concerns" ? slug : null);
+    setNote(r === "note" ? slug : null);
+    const next = hashFor(r, slug);
+    if (window.location.hash !== next) window.history.pushState(null, "", next);
+  };
+  const onPick = (slug) => { if (slug) setRoute("detail", slug); };
+
+  useEffect(() => {
+    const onHash = () => {
+      const next = parseHash();
+      setRouteState(next.route);
+      setDetail(next.detail);
+      setNote(next.note);
+      setTopic(next.topic);
+      setConcern(next.concern);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        document.querySelector(".search input")?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  let crumbs = ["Trajectory"];
+  let view;
+  if (route === "dashboard") { crumbs = ["Trajectory","Today"]; view = <Dashboard items={items} viz={t.viz} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "catalogue") { crumbs = topic === "nutrition" ? ["Trajectory","Catalogue","Nutrition"] : ["Trajectory","Catalogue"]; view = <CatalogueView items={items} viz={t.viz} onPick={onPick} nutritionOnly={topic === "nutrition"} />; }
+  else if (route === "detail") {
+    const it = items.find(i => i.slug === detail);
+    crumbs = ["Trajectory","Catalogue", it ? it.name : "Detail"];
+    view = <DetailView slug={detail} items={items} viz={t.viz} onBack={() => setRoute("catalogue")} onPick={onPick} />;
+  }
+  else if (route === "concerns") { crumbs = ["Trajectory","By concern"]; view = <ConcernsView items={items} viz={t.viz} onPick={onPick} initialTarget={concern} />; }
+  else if (route === "playbooks") { crumbs = ["Trajectory","Playbooks"]; view = <PlaybooksView items={items} setRoute={setRoute} />; }
+  else if (route === "playbook") { crumbs = ["Trajectory","Playbooks", detail]; view = <PlaybookDetailView slug={detail} items={items} viz={t.viz} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "compare") { crumbs = ["Trajectory","Compare"]; view = <CompareView items={items} viz={t.viz} onPick={onPick} />; }
+  else if (route === "nutrition") { crumbs = ["Trajectory","Nutrition"]; view = <NutritionView items={items} viz={t.viz} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "lifestyle") { crumbs = ["Trajectory","Lifestyle"]; view = <CatalogueView items={items} viz={t.viz} onPick={onPick} categoryOnly="lifestyle" heading="Lifestyle." eyebrow="Category" />; }
+  else if (route === "supplements") { crumbs = ["Trajectory","Supplements"]; view = <CatalogueView items={items} viz={t.viz} onPick={onPick} categoryOnly="supplement" heading="Supplements." eyebrow="Category" />; }
+  else if (route === "medications") { crumbs = ["Trajectory","Medications"]; view = <CatalogueView items={items} viz={t.viz} onPick={onPick} categoryOnly="medication" heading="Medications." eyebrow="Category" />; }
+  else if (route === "news") { crumbs = ["Trajectory","Notes"]; view = NotesView ? <NotesView onPickPost={(slug) => setRoute("note", slug)} /> : <div className="page"><p>Notes coming soon.</p></div>; }
+  else if (route === "note") {
+    const post = (window.ALL_POSTS || []).find(p => p.slug === note);
+    crumbs = ["Trajectory","Notes", post ? post.title : "Article"];
+    view = <NoteArticleView slug={note} onBack={() => setRoute("news")} onPickPost={(slug) => setRoute("note", slug)} />;
+  }
+  else if (route === "search") { crumbs = ["Trajectory","Search"]; view = <SearchView items={items} query={searchTerm} viz={t.viz} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "mission") { crumbs = ["Trajectory","Mission"]; view = <MissionView setRoute={setRoute} />; }
+  else if (route === "methodology") { crumbs = ["Trajectory","Methodology"]; view = <MethodologyView items={items} />; }
+  else if (route === "assessment") { crumbs = ["Trajectory","Assessment"]; view = <AssessmentView items={items} onPick={onPick} setRoute={setRoute} />; }
+  else if (route === "account") { crumbs = ["Trajectory","Account"]; view = <AccountFallback setRoute={setRoute} />; }
+
+  return (
+    <div className="app">
+      <TopNav route={route} detail={detail} note={note} topic={topic} setRoute={(r) => setRoute(r)} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <SubBar crumbs={crumbs} />
+      <div className="main">{view}</div>
+      {window.TweaksPanel && (
+        <window.TweaksPanel title="Tweaks">
+          <window.TweakSection title="Palette">
+            <window.TweakColor label="Theme" value={t.theme} onChange={v => setTweak("theme", v)} options={[
+              { value: "default", swatch: ["#B5723C","#14302E","#F1ECE3"] },
+              { value: "ink", swatch: ["#5C7B6E","#1A1F1C","#ECEAE3"] },
+              { value: "oxblood", swatch: ["#8A3324","#1B1414","#F1ECE3"] },
+            ]} />
+          </window.TweakSection>
+          <window.TweakSection title="Voice">
+            <window.TweakRadio label="Display" value={t.tone} onChange={v => setTweak("tone", v)} options={[
+              { value: "first", label: "Fraunces·italic" },
+              { value: "second", label: "Fraunces" },
+              { value: "news", label: "Newsreader" },
+            ]} />
+          </window.TweakSection>
+          <window.TweakSection title="Score">
+            <window.TweakRadio label="Style" value={t.viz} onChange={v => setTweak("viz", v)} options={[
+              { value: "cell", label: "Numeric" },
+              { value: "bars", label: "Bars" },
+              { value: "ring", label: "Ring" },
+            ]} />
+          </window.TweakSection>
+        </window.TweaksPanel>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

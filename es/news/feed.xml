@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Trajectory — News</title>
+    <link>https://trajectory.care/news/</link>
+    <description>Daily-ish notes on longevity research, FDA actions, and mechanism explainers.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 May 2026 18:18:02 +0000</lastBuildDate>
+    <item>
+      <title>What I&#x27;d actually take if I were 50</title>
+      <link>https://trajectory.care/news/what-id-take-at-50.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/what-id-take-at-50.html</guid>
+      <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
+      <category></category>
+      <description>A common question we get: &quot;You have 85 things in the catalogue. What would you actually do?&quot; The honest answer is it depends entirely on who you are. But &quot;it depends&quot; isn&#x27;t useful, and the wizard-driven personalisation is one approach but not the only one. Sometimes seeing somebody else&#x27;s reasoning </description>
+    </item>
+    <item>
+      <title>Why we have 73 interventions, not 700</title>
+      <link>https://trajectory.care/news/why-73-not-700.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/why-73-not-700.html</guid>
+      <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
+      <category></category>
+      <description>If you Google &quot;longevity supplements,&quot; you&#x27;ll find lists of 200, 500, sometimes 1,000+ compounds. Most of them are theatre. Trajectory has 73 entries. That&#x27;s not because we&#x27;re lazy — it&#x27;s because most things people sell as &quot;longevity interventions&quot; don&#x27;t have evidence that survives a hostile read. H</description>
+    </item>
+    <item>
+      <title>FDA expands tirzepatide label to include cardiovascular event reduction</title>
+      <link>https://trajectory.care/news/tirzepatide-cv-label.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/tirzepatide-cv-label.html</guid>
+      <pubDate>Sun, 03 May 2026 00:00:00 +0000</pubDate>
+      <category>fda</category>
+      <description>Tirzepatide joins semaglutide on the short list of weight-loss drugs with a formal cardiovascular indication — meaningfully changing the insurance and prescribing math.</description>
+    </item>
+    <item>
+      <title>Why VO2max is the vital sign nobody measures (and how to measure yours)</title>
+      <link>https://trajectory.care/news/vo2max-vital-sign.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/vo2max-vital-sign.html</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <category>mechanism</category>
+      <description>Cardiorespiratory fitness predicts all-cause mortality more strongly than smoking, hypertension, and diabetes — and unlike those, your doctor probably hasn&#x27;t measured it.</description>
+    </item>
+    <item>
+      <title>Stop chasing rapamycin until you&#x27;re sleeping 7.5 hours</title>
+      <link>https://trajectory.care/news/stop-chasing-rapamycin.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/stop-chasing-rapamycin.html</guid>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <category>opinion</category>
+      <description>The rapamycin discourse has gotten ahead of the data. The math says: fix sleep, train VO2max, eat Mediterranean — those have a 50–100× larger expected mortality benefit than any current Frontier intervention.</description>
+    </item>
+    <item>
+      <title>New trial readout — creatine and cognitive performance in older adults</title>
+      <link>https://trajectory.care/news/creatine-cognitive-readout.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/creatine-cognitive-readout.html</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <category>trial-readout</category>
+      <description>A new 24-week RCT in adults 60+ shows modest but real improvements in working memory and processing speed with 5g/day creatine. Effect was concentrated in vegetarians and sleep-deprived participants — consistent with the dietary-baseline hypothesis.</description>
+    </item>
+    <item>
+      <title>The fiber protocol nobody runs — and why your gut ages faster without it</title>
+      <link>https://trajectory.care/news/fiber-protocol.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/fiber-protocol.html</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <category>mechanism</category>
+      <description>Most adults eat half the fiber the data supports. Fixing that is one of the highest-leverage, lowest-cost moves available — and it works through three independent mechanisms.</description>
+    </item>
+    <item>
+      <title>Zone 2 cardio: what it actually is, and why it isn&#x27;t a fad</title>
+      <link>https://trajectory.care/news/zone-2-cardio-explained.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/zone-2-cardio-explained.html</guid>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <category>mechanism</category>
+      <description>Zone 2 isn&#x27;t a heart-rate gimmick — it&#x27;s the specific intensity at which mitochondria are forced to adapt. Three sessions a week is the dose.</description>
+    </item>
+    <item>
+      <title>The protein RDA is wrong for adults over 50</title>
+      <link>https://trajectory.care/news/protein-myth.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/protein-myth.html</guid>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <category>opinion</category>
+      <description>The 0.8 g/kg/day RDA was set in 1968 for healthy young adults — and it&#x27;s wrong for almost everyone over 50. The newer evidence-based target is 1.2–1.6 g/kg/day, ideally spread across meals.</description>
+    </item>
+    <item>
+      <title>Vitamin D after VITAL: where the evidence actually lands</title>
+      <link>https://trajectory.care/news/vitamin-d-update.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/vitamin-d-update.html</guid>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <category>trial-readout</category>
+      <description>VITAL didn&#x27;t kill vitamin D — it killed the idea that supplementing vitamin D in vitamin-D-replete adults would prevent cancer or cardiovascular events. The fracture prevention case in deficient older adults is still real.</description>
+    </item>
+    <item>
+      <title>Grip strength is a better mortality predictor than your blood pressure</title>
+      <link>https://trajectory.care/news/grip-strength.html</link>
+      <guid isPermaLink="true">https://trajectory.care/news/grip-strength.html</guid>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+      <category>mechanism</category>
+      <description>A $20 hand dynamometer measures something more predictive of all-cause mortality than systolic BP, ApoB, or HbA1c. Most adults have never had it tested.</description>
+    </item>
+  </channel>
+</rss>

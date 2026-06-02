@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trajectory.quest — The Daily Brief</title>
+    <link>https://trajectory.quest/podcast/</link>
+    <atom:link href="https://trajectory.quest/podcast/feed.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>(c) 2026 trajectory.quest</copyright>
+    <description>A two-host conversation about what the evidence actually says on living longer. Plain English. No jargon. Promising vs. proven. Updated daily — see the diff at trajectory.quest.</description>
+    <itunes:summary>A two-host conversation about what the evidence actually says on living longer. Plain English. No jargon. Promising vs. proven.</itunes:summary>
+    <itunes:author>trajectory.quest</itunes:author>
+    <itunes:owner>
+      <itunes:name>trajectory.quest</itunes:name>
+      <itunes:email>hello@trajectory.quest</itunes:email>
+    </itunes:owner>
+    <itunes:category text="Health &amp; Fitness">
+      <itunes:category text="Medicine"/>
+    </itunes:category>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:image href="https://trajectory.quest/podcast/cover.jpg" />
+    <image>
+      <url>https://trajectory.quest/podcast/cover.jpg</url>
+      <title>Trajectory.quest — The Daily Brief</title>
+      <link>https://trajectory.quest/podcast/</link>
+    </image>
+
+    <item>
+      <title>001 — The dirt on Easter Island that might add 15 years to your life</title>
+      <link>https://trajectory.quest/podcast/episode-001.html</link>
+      <guid isPermaLink="false">trajectory-quest-ep-001</guid>
+      <pubDate>Fri, 15 May 2026 06:00:00 +0000</pubDate>
+      <description>Two hosts walk through rapamycin — the molecule scraped off a stone head on Easter Island in 1972 that has extended lifespan in every species we've tested. Plain English: how it works, what we know, what we don't, and why you shouldn't buy it online.</description>
+      <itunes:summary>Two hosts walk through rapamycin — the molecule scraped off a stone head on Easter Island in 1972 that has extended lifespan in every species we've tested. Plain English: how it works, what we know, what we don't, and why you shouldn't buy it online.</itunes:summary>
+      <itunes:duration>00:07:01</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episode>1</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <enclosure url="https://trajectory.quest/podcast/episode-001.mp3" length="5058476" type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>
