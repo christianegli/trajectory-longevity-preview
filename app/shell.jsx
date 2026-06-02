@@ -24,7 +24,7 @@ const SECONDARY_ROUTES = [
 ];
 
 const LANGUAGES = [];
-const APP_VERSION = "20260602b";
+const APP_VERSION = "20260602c";
 
 function TopNav({ route, detail, note, topic, setRoute, searchTerm, setSearchTerm }) {
   const [moreOpen, setMoreOpen] = useState(false);
@@ -58,22 +58,20 @@ function TopNav({ route, detail, note, topic, setRoute, searchTerm, setSearchTer
             {r.label}
           </button>
         ))}
-        <div className="nav-more" onBlur={(event) => {
+        <div className={`nav-more ${moreOpen ? "open" : ""}`} data-open={moreOpen ? "true" : "false"} onMouseEnter={() => setMoreOpen(true)} onMouseLeave={() => setMoreOpen(false)} onBlur={(event) => {
           if (!event.currentTarget.contains(event.relatedTarget)) setMoreOpen(false);
         }}>
           <button type="button" className={`nav-item nav-more-trigger ${SECONDARY_ROUTES.some(r => isActive(r.key)) ? "active" : ""}`} onClick={() => setMoreOpen(open => !open)} aria-haspopup="menu" aria-expanded={moreOpen}>
             More
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6" /></svg>
           </button>
-          {moreOpen && (
-            <div className="nav-menu" role="menu">
-              {SECONDARY_ROUTES.map(r => (
-                <button type="button" key={r.key} className={`nav-menu-item ${isActive(r.key) ? "active" : ""}`} onClick={() => goRoute(r.key)} role="menuitem">
-                  {r.label}
-                </button>
-              ))}
-            </div>
-          )}
+          <div className="nav-menu" role="menu" aria-hidden={!moreOpen}>
+            {SECONDARY_ROUTES.map(r => (
+              <button type="button" key={r.key} className={`nav-menu-item ${isActive(r.key) ? "active" : ""}`} onClick={() => goRoute(r.key)} role="menuitem" tabIndex={moreOpen ? 0 : -1}>
+                {r.label}
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
       <div className="right">
